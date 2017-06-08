@@ -8,7 +8,9 @@ export const types = {
 export function setValue(path, value) {
 	return {
 		type: types.SET_VALUE,
-		path: path,
-		value: value
+		payload: {
+			path: path,
+			value: value
+		}
 	};
 }

@@ -32,12 +32,12 @@ export const middleware = store => next => action => {
 	if (action.type !== types.ELM_HISTORY_NAVIGATE) {
 		return next(action);
 	}
-
-	let historyAction = action.method.toLowerCase();
+	let payload = action.payload;
+	let historyAction = payload.method.toLowerCase();
 	if (isValidAction(historyAction)) {
-		history[historyAction](action.location, action.state);
+		history[historyAction](payload.location, payload.state);
 	} else {
-		throw new Error('History method "' + action.method + '" is not supported. Use one of PUSH, POP or REPLACE');
+		throw new Error('History method "' + payload.method + '" is not supported. Use one of PUSH, POP or REPLACE');
 	}
 
 

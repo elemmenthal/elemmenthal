@@ -71,11 +71,15 @@ function getFinalUrl(requestUrl, urlParams) {
 
 const fetchMiddleware = store => next => action => {
 
+	let payload = action.payload;
+
 	if (action.type === types.API_CALL) {
 
-		let callObj = compiledCalls[action.key];
+
+
+		let callObj = compiledCalls[payload.key];
 		if (!callObj) {
-			throw new Error('elemental-fetch: call "' + action.key + '" is not defined!');
+			throw new Error('elemental-fetch: call "' + payload.key + '" is not defined!');
 		}
 
 		let reqData = callObj.request;
@@ -158,12 +162,12 @@ const fetchMiddleware = store => next => action => {
 	} else if (action.type === types.API_REQUEST) {
 
 		let reqData = {};
-		if (action.mixins) {
-			for (var i = 0; i < action.mixins.length; ++i) {
-				Object.assign(reqData, mixins[action.mixins[i]]);
+		if (payload.mixins) {
+			for (var i = 0; i < payload.mixins.length; ++i) {
+				Object.assign(reqData, mixins[payload.mixins[i]]);
 			}
 		}
-		Object.assign(reqData, action.request);
+		Object.assign(reqData, payload.request);
 
 
 		if (reqData.baseUrl) {

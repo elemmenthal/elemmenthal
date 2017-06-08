@@ -23,6 +23,9 @@ import * as elmFetch from './elemental-fetch'
 const elementalModules = [elmI18n, elmHistory, elmRouter2, elmBindable, elmFetch];
 
 
+// app imports
+import * as translationEditor from './translation-editor'
+
 
 const i18nConfig = {
 	locale: 'en',
@@ -42,7 +45,7 @@ const i18nConfig = {
 	}
 };
 
-const appModules = ['test-i18n'];
+const appModules = ['test-i18n', 'translation-editor'];
 
 const elTranslations = [];
 for (let i=0; i<appModules.length; ++i) {
@@ -57,6 +60,8 @@ for (let i=0; i<appModules.length; ++i) {
 		}
 	}
 }
+
+// FIXME REMOVE
 console.log(i18nConfig);
 
 
@@ -96,15 +101,25 @@ function root(state = {}, action = {}) {
 	let newState = {
 		todosPage: reducer(state.todosPage, action),
 		$router: elmRouter2.reducer(state.$router, action),
-		$edt: edtReducer(state.$edt, action)
+		$i18n: elmI18n.reducer(state.$i18n, action),
+		$edt: edtReducer(state.$edt, action),
+
+		translationEditor: translationEditor.reducer(state.translationEditor, action)
+
 	};
 	return Object.assign({}, newState, bindableReducer(state, action));
 }
 
+import persistState from 'redux-localstorage'
+
+var persistedState = {};
+try { persistedState = JSON.parse(window.localStorage.redux) } catch(e) {}
+
 const store = createStore(
 	root,//combineReducers(reducers),
-	{},
+	persistedState,
 	compose(
+		persistState(),
 		applyMiddleware.apply(this, elementalMiddlewares),
 		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 	));

@@ -3,7 +3,6 @@ import Project from './Project.js'
 
 const ProjectList = ({ projects }) => {
 
-	debugger;
 	if (!projects) {
 		return <ul/>
 	}

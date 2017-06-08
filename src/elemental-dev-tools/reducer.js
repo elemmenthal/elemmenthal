@@ -7,7 +7,7 @@ const edtReducer = (state = {}, action = {}) => {
 		case fetchActions.API_RESPONSE:
 
 			if (get(action, 'meta.requestAction.key') === 'getProjects')
-				return Object.assign({}, state, { projects: action.response.data });
+				return Object.assign({}, state, { projects: action.payload.response.data });
 			debugger;
 			return state
 		default:

@@ -21,51 +21,56 @@ import ProjectListContainer from '../elemental-dev-tools/components/ProjectList.
 
 import TestI18n from '../test-i18n'
 
+import TranslationEditor from '../translation-editor'
+
 const App = () => (
-  <div>
+    <div>
 
-	  <ElementalTools />
-	  <h1><Span bind="pippo.pluto"/></h1>
-	  <TestRouter/>
+        <ElementalTools />
 
-    <AddTodo />
-    <VisibleTodoList />
-    <Footer />
+        <h1><Span bind="pippo.pluto"/></h1>
+        <TestRouter/>
 
-	  <InternalLink route="homePage" >HOME </InternalLink><br/>
-	  <InternalLink route="allUsers" params={{ id: 123 }}> USERS </InternalLink><br/>
-	  <InternalLink route="userResource" params={{ id: 123, resId: 666 }}> USER RES </InternalLink><br/>
-	  <InternalLink route="pippo" ><Translate value="application.title"/> </InternalLink><br/>
-	  <br/>
-	  <InternalLink route="homePage" searchParams={{ _settings: 'fetch' }} >Fetch settings </InternalLink><br/>
-	  <InternalLink route="homePage" searchParams={{ _settings: 'i18n' }} >I18n settings </InternalLink><br/>
-	  <InternalLink route="homePage" searchParams={{ _settings: 'router' }} >Router settings </InternalLink><br/>
+        <AddTodo />
+        <VisibleTodoList />
+        <Footer />
 
-	  <br/>
+        <InternalLink route="homePage">HOME </InternalLink><br/>
+        <InternalLink route="allUsers" params={{ id: 123 }}> USERS </InternalLink><br/>
+        <InternalLink route="userResource" params={{ id: 123, resId: 666 }}> USER RES </InternalLink><br/>
+        <InternalLink route="pippo"><Translate value="application.title"/> </InternalLink><br/>
+        <br/>
+        <InternalLink route="homePage" searchParams={{ _settings: 'fetch' }}>Fetch settings </InternalLink><br/>
+        <InternalLink route="homePage" searchParams={{ _settings: 'i18n' }}>I18n settings </InternalLink><br/>
+        <InternalLink route="homePage" searchParams={{ _settings: 'router' }}>Router settings </InternalLink><br/>
 
-	  <LanguageLink code="en">Set EN</LanguageLink><br/>
-	  <LanguageLink code="nl">Set NL</LanguageLink><br/>
-	  <LanguageLink code="it">Set IT</LanguageLink><br/>
-	  <TestI18n/>
+        <br/>
 
-	  <br/>
+        <LanguageLink code="en">Set EN</LanguageLink><br/>
+        <LanguageLink code="nl">Set NL</LanguageLink><br/>
+        <LanguageLink code="it">Set IT</LanguageLink><br/>
+        <TestI18n/>
 
-	  <HistoryLink href="/users/66/resources/88?filter=all">All Users (History link) </HistoryLink><br/>
+        <br/>
 
-	  <ApiLink>CALL API</ApiLink><br/>
-		<FetchLink call="getProjects">GET PROJECTS</FetchLink><br/>
-	  <FetchLink call="postProject">POST PROJECT</FetchLink><br/>
+        <HistoryLink href="/users/66/resources/88?filter=all">All Users (History link) </HistoryLink><br/>
+
+        <ApiLink>CALL API</ApiLink><br/>
+        <FetchLink call="getProjects">GET PROJECTS</FetchLink><br/>
+        <FetchLink call="postProject">POST PROJECT</FetchLink><br/>
 
 
-	  <TextInput bind="$router.route" /> <br/> <TextInput bind="pippo.pluto" /><br/>
-	  <Span bind="pippo.pluto"/>
-	  <ColorPicker bind="pippo.pluto" defaultValue="#ff0000" debounce={200} />
+        <TextInput bind="$router.route"/> <br/> <TextInput bind="pippo.pluto"/><br/>
+        <Span bind="pippo.pluto"/>
+        <ColorPicker bind="pippo.pluto" defaultValue="#ff0000" debounce={200}/>
 
-	  <AppSettings/>
+        <AppSettings/>
 
-	  <ProjectListContainer/>
+        <ProjectListContainer/>
 
-  </div>
+        <TranslationEditor />
+
+    </div>
 )
 
 export default App

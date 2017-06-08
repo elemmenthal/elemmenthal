@@ -11,13 +11,14 @@ import * as historyAction from '../elemental-history/actions'
 
 
 export const reducer = (state = {}, action = null) => {
+	let payload = action.payload;
 	switch (action.type) {
 		case actionTypes.NOTIFY_CHANGE:
 			return Object.assign({}, state, {
-				location: action.location,
-				route: action.route.name,
-				params: action.params,
-				searchParams: action.searchParams
+				location: payload.location,
+				route: payload.route.name,
+				params: payload.params,
+				searchParams: payload.searchParams
 			});
 
 		default:
@@ -68,25 +69,28 @@ export const init = function (config) {
 };
 
 export const middleware = store => next => action => {
-	if (action.type == actionTypes.NAVIGATE) {
+
+	let payload = action.payload;
+
+	if (action.type === actionTypes.NAVIGATE) {
 
 		// select the route coming from the link
 		let route = null;
 		for (let i=0; i<routes.length; ++i) {
-			if (routes[i].name === action.route) {
+			if (routes[i].name === payload.route) {
 				route = routes[i];
 				break;
 			}
 		}
 		if (!route) {
-			throw new Error('Route "' + action.route + '" is not defined!');
+			throw new Error('Route "' + payload.route + '" is not defined!');
 		}
 
-		var url = route.getPath(action.params);
+		var url = route.getPath(payload.params);
 
-		if (action.searchParams) {
+		if (payload.searchParams) {
 			var searchString = '?';
-			forEach(action.searchParams, (v, k) => {
+			forEach(payload.searchParams, (v, k) => {
 				searchString += encodeURIComponent(k) + '=' + encodeURIComponent(v)
 			});
 			url += searchString
@@ -100,18 +104,18 @@ export const middleware = store => next => action => {
 		let route = null,
 			params = null,
 			searchParams = null,
-			match = matchRoute(routes, action.location.pathname);
+			match = matchRoute(routes, payload.location.pathname);
 
 		if (match) {
 			route = match.route;
 			params = match.params;
-			searchParams = deparam((action.location.search || '?').substring(1));
+			searchParams = deparam((payload.location.search || '?').substring(1));
 		} else {
 			route = notFoundRoute.name;
 		}
 
 		// set history
-		store.dispatch(notifyRouteChange(action.location, route, params, searchParams));
+		store.dispatch(notifyRouteChange(payload.location, route, params, searchParams));
 
 
 	} else {

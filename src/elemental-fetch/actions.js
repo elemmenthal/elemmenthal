@@ -8,7 +8,9 @@ export const types = {
 export function apiResponse (response, meta) {
 	return {
 		type: types.API_RESPONSE,
-		response: response,
+		payload: {
+			response: response
+		},
 		meta: meta
 	};
 }
@@ -16,14 +18,18 @@ export function apiResponse (response, meta) {
 export function apiRequest (request, mixins) {
 	return {
 		type: types.API_REQUEST,
-		request: request,
-		mixins: mixins
+		payload: {
+			request: request,
+			mixins: mixins
+		}
 	};
 }
 
 export function apiCall (callKey) {
 	return {
 		type: types.API_CALL,
-		key: callKey
+		payload: {
+			key: callKey
+		}
 	};
 }

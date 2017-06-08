@@ -8,15 +8,19 @@ export const types = {
 export function navigate(href, method) {
 	return {
 		type: types.ELM_HISTORY_NAVIGATE,
-		location: href,
-		method: method
+		payload: {
+			location: href,
+			method: method
+		}
 	}
 }
 
 export function setLocation(location, method) {
 	return {
 		type: types.ELM_HISTORY_SET_LOCATION,
-		location: location,
-		method: method
+		payload: {
+			location: location,
+			method: method
+		}
 	}
 }
