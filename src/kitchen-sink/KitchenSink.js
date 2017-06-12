@@ -20,8 +20,10 @@ import TestI18n from '../test-i18n'
 
 import TranslationEditor from '../translation-editor'
 
+import './KitchenSink.css'
+
 const KitchenSink = () => (
-    <div>
+    <div className="kitchen-sink">
 
         <ElementalTools />
 
