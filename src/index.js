@@ -14,13 +14,13 @@ import edtReducer from './elemental-dev-tools/reducer.js'
 // elemental imports
 
 import * as elmI18n from './elemental-i18n'
-import * as elmHistory from './elemental-history'
+//import * as elmHistory from './elemental-history'
 
-import * as elmRouter2 from './elemental-router'
+import * as elmRouter2 from './elemental-router2'
 import * as elmBindable from './elemental-bindable'
 import * as elmFetch from './elemental-fetch'
 
-const elementalModules = [elmI18n, elmHistory, elmRouter2, elmBindable, elmFetch];
+const elementalModules = [elmI18n, /*elmHistory,*/ elmRouter2, elmBindable, elmFetch];
 
 
 // app imports
@@ -67,14 +67,15 @@ console.log(i18nConfig);
 
 import routerConfig from './elemental-config/router.js';
 import elmFetchConfig from './elemental-config/fetch.js';
-
+/*
 const historyConfig = {
 	mode: routerConfig.mode
 };
+*/
 
 
 
-const elementalConfigs = [i18nConfig, historyConfig, routerConfig, null, elmFetchConfig];
+const elementalConfigs = [i18nConfig, /*historyConfig,*/ routerConfig, null, elmFetchConfig];
 
 // PRE CONFIG
 

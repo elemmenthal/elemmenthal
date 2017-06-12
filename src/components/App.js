@@ -2,12 +2,11 @@ import React from 'react'
 import Footer from './Footer'
 import AddTodo from '../containers/AddTodo'
 import VisibleTodoList from '../containers/VisibleTodoList'
-import InternalLink from '../elemental-router/containers/InternalLink'
+import InternalLink from '../elemental-router2/containers/InternalLink'
 import LanguageLink from '../containers/LanguageLink.js'
 import AppSettings from '../containers/AppSettings.js'
 import ApiLink from '../containers/ApiLink.js'
 import FetchLink from '../elemental-fetch/components/FetchLink.js'
-import HistoryLink  from '../elemental-history/containers/Link.js'
 
 import {Translate} from 'react-i18nify'
 
@@ -53,7 +52,8 @@ const App = () => (
 
         <br/>
 
-        <HistoryLink href="/users/66/resources/88?filter=all">All Users (History link) </HistoryLink><br/>
+        <InternalLink href="/users/66/resources/88?filter=all">All Users (Internal HREF link) </InternalLink><br/>
+
 
         <ApiLink>CALL API</ApiLink><br/>
         <FetchLink call="getProjects">GET PROJECTS</FetchLink><br/>
