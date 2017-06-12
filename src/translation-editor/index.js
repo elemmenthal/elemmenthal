@@ -45,7 +45,7 @@ class TranslationEditorComponent extends React.Component {
         }
 
         let translationText = this.isLanguageSelected() ? this.props.translations[this.props.selectedLang] : '';
-        let entries = <AceEditor
+        let entries = !this.props.selectedLang ? null : <AceEditor
             mode="yaml"
             theme="terminal"
             onChange={ this.onChangeEntries }
