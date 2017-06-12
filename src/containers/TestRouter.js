@@ -31,7 +31,7 @@ TestRouterComponent.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		$router: state.$router
+		$router: state.$elm.router
 	}
 };
 

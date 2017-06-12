@@ -60,7 +60,7 @@ const App = () => (
         <FetchLink call="postProject">POST PROJECT</FetchLink><br/>
 
 
-        <TextInput bind="$router.route"/> <br/> <TextInput bind="pippo.pluto"/><br/>
+        <TextInput bind="$elm.router.route"/> <br/> <TextInput bind="pippo.pluto"/><br/>
         <Span bind="pippo.pluto"/>
         <ColorPicker bind="pippo.pluto" defaultValue="#ff0000" debounce={200}/>
 

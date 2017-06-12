@@ -55,5 +55,5 @@ export const reducer = (state = { lang: 'en' }, action = {}) => {
 };
 
 export const configStore = (reduxStore) => {
-    I18n.setLocale(reduxStore.getState().$i18n.lang);
+    I18n.setLocale(reduxStore.getState().$elm.i18n.lang);
 };

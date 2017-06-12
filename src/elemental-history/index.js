@@ -63,7 +63,7 @@ export const configStore = (reduxStore) => {
 
 	// align url with store changes
 	store.subscribe(() => {
-		let rtr = store.getState().$router;
+		let rtr = store.getState().$elm.router;
 		if (rtr && history.location !== rtr.location) {
 			isTimeTraveling = true;
 			history.replace(rtr.location);

@@ -99,14 +99,16 @@ reducers[bindableReducerName] = bindableReducer;
 */
 
 function root(state = {}, action = {}) {
+
+	state.$elm = state.$elm || {};
 	let newState = {
 		todosPage: reducer(state.todosPage, action),
-		$router: elmRouter2.reducer(state.$router, action),
-		$i18n: elmI18n.reducer(state.$i18n, action),
 		$edt: edtReducer(state.$edt, action),
-
-		translationEditor: translationEditor.reducer(state.translationEditor, action)
-
+		translationEditor: translationEditor.reducer(state.translationEditor, action),
+		$elm: {
+			router: elmRouter2.reducer(state.$elm.router, action),
+			i18n: elmI18n.reducer(state.$elm.i18n, action)
+		}
 	};
 	return Object.assign({}, newState, bindableReducer(state, action));
 }

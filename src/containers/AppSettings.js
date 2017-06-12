@@ -25,7 +25,7 @@ let AppSettings = ({ $router }) => {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-	$router: state.$router
+	$router: state.$elm.router
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
