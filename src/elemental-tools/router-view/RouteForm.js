@@ -4,7 +4,6 @@ import Button from '../components/Button.js'
 import TextInput from '../components/TextInput.js'
 import RouteNameInput from './RouteNameInput.js'
 import RoutePathInput from './RoutePathInput.js'
-import AddRouteButton from './AddRouteButton.js'
 
 const RouteForm = ( ) => (
   <div>
@@ -18,9 +17,7 @@ const RouteForm = ( ) => (
 			  <label>ROUTE PATH</label>
 			  <RoutePathInput />
 		  </div>
-		  <div>
-			  <AddRouteButton />
-		  </div>
+
 	  </div>
 
 

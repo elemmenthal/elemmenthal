@@ -1,7 +1,5 @@
 import React from 'react'
-import Footer from './Footer'
-import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
+
 import InternalLink from '../elemental-router2/containers/InternalLink'
 import LanguageLink from '../containers/LanguageLink.js'
 import AppSettings from '../containers/AppSettings.js'
@@ -30,9 +28,6 @@ const App = () => (
         <h1><Span bind="pippo.pluto"/></h1>
         <TestRouter/>
 
-        <AddTodo />
-        <VisibleTodoList />
-        <Footer />
 
         <InternalLink route="homePage">HOME </InternalLink><br/>
         <InternalLink route="allUsers" params={{ id: 123 }}> USERS </InternalLink><br/>

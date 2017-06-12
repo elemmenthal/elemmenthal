@@ -3,7 +3,6 @@ import { render } from 'react-dom'
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import App from './components/App'
-import reducer from './reducers'
 import { reducer as bindableReducer, reducerName as bindableReducerName } from './elemental-bindable'
 
 
@@ -92,7 +91,6 @@ for (let i=0; i<elementalModules.length; ++i) {
 
 /* // for combineReducers
 const reducers = {
-	todosPage: reducer,
 	router: elmRouter2.reducer
 };
 reducers[bindableReducerName] = bindableReducer;
@@ -102,7 +100,6 @@ function root(state = {}, action = {}) {
 
 	state.$elm = state.$elm || {};
 	let newState = {
-		todosPage: reducer(state.todosPage, action),
 		$edt: edtReducer(state.$edt, action),
 		translationEditor: translationEditor.reducer(state.translationEditor, action),
 		$elm: {
