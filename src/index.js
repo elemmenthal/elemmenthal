@@ -26,23 +26,7 @@ const elementalModules = [elmI18n, /*elmHistory,*/ elmRouter2, elmBindable, elmF
 import * as translationEditor from './translation-editor'
 
 
-const i18nConfig = {
-	locale: 'en',
-	translations: {
-		en: {
-			application: {
-				title: 'Awesome app with i18n!',
-				hello: 'Hello, %{name}!'
-			}
-		},
-		nl: {
-			application: {
-				title: 'Toffe app met i18n!',
-				hello: 'Hallo, %{name}!'
-			}
-		}
-	}
-};
+import i18nConfig from './elemental-config/i18n.js';
 
 const appModules = ['test-i18n', 'translation-editor'];
 

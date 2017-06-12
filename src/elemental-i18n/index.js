@@ -57,3 +57,6 @@ export const reducer = (state = { lang: 'en' }, action = {}) => {
 export const configStore = (reduxStore) => {
     I18n.setLocale(reduxStore.getState().$elm.i18n.lang);
 };
+
+
+export { Translate } from 'react-i18nify'
